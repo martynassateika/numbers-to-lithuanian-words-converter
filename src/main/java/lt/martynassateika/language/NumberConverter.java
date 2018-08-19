@@ -104,7 +104,7 @@ public class NumberConverter {
    * -> "vienas šimtas dvidešimt trys"
    *
    * toLithuanian(1993);
-   * -> "tūkstantis devyni šimtai devyniasdešimt trys"
+   * -> "vienas tūkstantis devyni šimtai devyniasdešimt trys"
    *
    * toLithuanian(-5);
    * -> "minus penki"
