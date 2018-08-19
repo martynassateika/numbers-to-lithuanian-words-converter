@@ -100,6 +100,9 @@ public class NumberConverter {
    * toLithuanian(0);
    * -> "nulis"
    *
+   * toLithuanian(123);
+   * -> "vienas šimtas dvidešimt trys"
+   *
    * toLithuanian(1993);
    * -> "tūkstantis devyni šimtai devyniasdešimt trys"
    *
@@ -110,16 +113,6 @@ public class NumberConverter {
    * -> "devyni kvintilijonai du šimtai dvidešimt trys kvadrilijonai trys šimtai septyniasdešimt du
    *     trilijonai trisdešimt šeši milijardai aštuoni šimtai penkiasdešimt keturi milijonai septyni
    *     šimtai septyniasdešimt penki tūkstančiai aštuoni šimtai septyni"
-   * }</pre>
-   *
-   * <p>Note that the hundreds count is omitted from the result if there is only one hundred:</p>
-   *
-   * <pre>{@code
-   * converter.toLithuanian(100);
-   * -> "šimtas"  // not "vienas šimtas"!
-   *
-   * converter.toLithuanian(200);
-   * -> "du šimtai"
    * }</pre>
    *
    * @param number a number
@@ -182,10 +175,8 @@ public class NumberConverter {
     long scaleValue = scale.getAsLong();
     if (number >= scaleValue) {
       int count = (int) (number / scaleValue);
-      if (count > 1 || scale.printCountIfOne()) {
-        sb.append(upToOneThousand(count));
-        sb.append(' ');
-      }
+      sb.append(upToOneThousand(count));
+      sb.append(' ');
       sb.append(scale.formForCount(count));
       sb.append(' ');
       return number - count * scaleValue;
