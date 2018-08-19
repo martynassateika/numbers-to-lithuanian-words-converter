@@ -28,7 +28,7 @@ import java.util.function.LongSupplier;
  */
 enum Scale implements LongSupplier {
 
-  HUNDRED(100L, "šimtas", "šimtai", "šimtų", false),
+  HUNDRED(100L, "šimtas", "šimtai", "šimtų"),
 
   THOUSAND(1_000L, "tūkstantis", "tūkstančiai", "tūkstančių"),
 
@@ -54,27 +54,11 @@ enum Scale implements LongSupplier {
   // Plural form to use if count is between 11 and 19, or a multiple of 10
   final String pluralForm2;
 
-  // Indicates whether the converted count should be printed if it's 1
-  private final boolean printCountIfOne;
-
   Scale(long numericalValue, String singularForm, String pluralForm, String pluralForm2) {
-    this(numericalValue, singularForm, pluralForm, pluralForm2, true);
-  }
-
-  Scale(long numericalValue, String singularForm, String pluralForm, String pluralForm2,
-      boolean printCountIfOne) {
     this.numericalValue = numericalValue;
     this.singularForm = singularForm;
     this.pluralForm = pluralForm;
     this.pluralForm2 = pluralForm2;
-    this.printCountIfOne = printCountIfOne;
-  }
-
-  /**
-   * @return whether the converted count should be printed if it's 1
-   */
-  boolean printCountIfOne() {
-    return printCountIfOne;
   }
 
   /**

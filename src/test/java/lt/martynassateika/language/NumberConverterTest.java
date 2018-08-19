@@ -81,7 +81,7 @@ class NumberConverterTest {
   @Test
   void convert_hundreds() {
     assertAll(
-        () -> check("šimtas", 100),
+        () -> check("vienas šimtas", 100),
         () -> check("du šimtai", 200),
         () -> check("trys šimtai", 300),
         () -> check("keturi šimtai", 400),
@@ -106,7 +106,7 @@ class NumberConverterTest {
         () -> check("aštuoni tūkstančiai", 8_000),
         () -> check("devyni tūkstančiai", 9_000),
         () -> check("dešimt tūkstančių", 10_000),
-        () -> check("šimtas tūkstančių", 100_000),
+        () -> check("vienas šimtas tūkstančių", 100_000),
         () -> check(
             "devyni šimtai devyniasdešimt devyni tūkstančiai devyni šimtai devyniasdešimt devyni",
             999_999)
@@ -128,7 +128,7 @@ class NumberConverterTest {
         () -> check("dešimt milijonų", 10_000_000),
         () -> check("dvidešimt milijonų", 20_000_000),
         () -> check("devyniasdešimt milijonų", 90_000_000),
-        () -> check("šimtas milijonų", 100_000_000),
+        () -> check("vienas šimtas milijonų", 100_000_000),
         () -> check("devyni šimtai milijonų", 900_000_000),
         () -> check("devyni šimtai devyniasdešimt devyni milijonai", 999_000_000)
     );
@@ -233,10 +233,11 @@ class NumberConverterTest {
     assertAll(
         () -> check("vienas", 1),
         () -> check("dvylika", 12),
-        () -> check("šimtas dvidešimt trys", 123),
+        () -> check("vienas šimtas dvidešimt trys", 123),
         () -> check("vienas tūkstantis du šimtai trisdešimt keturi", 1234),
         () -> check("dvylika tūkstančių trys šimtai keturiasdešimt penki", 12345),
-        () -> check("šimtas dvidešimt trys tūkstančiai keturi šimtai penkiasdešimt šeši", 123456),
+        () -> check("vienas šimtas dvidešimt trys tūkstančiai keturi šimtai penkiasdešimt šeši",
+            123456),
         () -> check(
             "vienas milijonas du šimtai trisdešimt keturi tūkstančiai penki šimtai šešiasdešimt septyni",
             1234567),
@@ -244,7 +245,7 @@ class NumberConverterTest {
             "dvylika milijonų trys šimtai keturiasdešimt penki tūkstančiai šeši šimtai septyniasdešimt aštuoni",
             12345678),
         () -> check(
-            "šimtas dvidešimt trys milijonai keturi šimtai penkiasdešimt šeši tūkstančiai septyni šimtai aštuoniasdešimt devyni",
+            "vienas šimtas dvidešimt trys milijonai keturi šimtai penkiasdešimt šeši tūkstančiai septyni šimtai aštuoniasdešimt devyni",
             123456789),
         () -> check(
             "vienas milijardas du šimtai trisdešimt keturi milijonai penki šimtai šešiasdešimt septyni tūkstančiai aštuoni šimtai devyniasdešimt",
@@ -256,7 +257,7 @@ class NumberConverterTest {
   void convert_cycleOneThroughNine() {
     assertAll(
         () -> check(
-            "šimtas dvidešimt trys milijonai keturi šimtai penkiasdešimt šeši tūkstančiai septyni šimtai aštuoniasdešimt devyni",
+            "vienas šimtas dvidešimt trys milijonai keturi šimtai penkiasdešimt šeši tūkstančiai septyni šimtai aštuoniasdešimt devyni",
             123456789),
         () -> check(
             "du šimtai trisdešimt keturi milijonai penki šimtai šešiasdešimt septyni tūkstančiai aštuoni šimtai devyniasdešimt vienas",
@@ -265,7 +266,7 @@ class NumberConverterTest {
             "trys šimtai keturiasdešimt penki milijonai šeši šimtai septyniasdešimt aštuoni tūkstančiai devyni šimtai dvylika",
             345678912),
         () -> check(
-            "keturi šimtai penkiasdešimt šeši milijonai septyni šimtai aštuoniasdešimt devyni tūkstančiai šimtas dvidešimt trys",
+            "keturi šimtai penkiasdešimt šeši milijonai septyni šimtai aštuoniasdešimt devyni tūkstančiai vienas šimtas dvidešimt trys",
             456789123),
         () -> check(
             "penki šimtai šešiasdešimt septyni milijonai aštuoni šimtai devyniasdešimt vienas tūkstantis du šimtai trisdešimt keturi",
@@ -274,7 +275,7 @@ class NumberConverterTest {
             "šeši šimtai septyniasdešimt aštuoni milijonai devyni šimtai dvylika tūkstančių trys šimtai keturiasdešimt penki",
             678912345),
         () -> check(
-            "septyni šimtai aštuoniasdešimt devyni milijonai šimtas dvidešimt trys tūkstančiai keturi šimtai penkiasdešimt šeši",
+            "septyni šimtai aštuoniasdešimt devyni milijonai vienas šimtas dvidešimt trys tūkstančiai keturi šimtai penkiasdešimt šeši",
             789123456),
         () -> check(
             "aštuoni šimtai devyniasdešimt vienas milijonas du šimtai trisdešimt keturi tūkstančiai penki šimtai šešiasdešimt septyni",
